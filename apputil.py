@@ -1,17 +1,15 @@
 # EXERCISE 1
 def ways(n):
     """
-    Return the number of ways to make change for n cents
-    using only pennies (1¢) and nickels (5¢).
+    Return the number of ways to make change for n cents using only pennies (1¢) and nickels (5¢), with yield.
     """
-    count = 0
-    for nick in range(n // 5 + 1):
-        pen = n - 5 * nick
-        if pen >= 0:
-            count += 1
-    return count
+    def gen():
+        for nick in range(n // 5 + 1):
+            yield 1
+    return sum(gen())
 
 
+# Test cases
 print("ways(12) =", ways(12))  # 3 ways -> (12,0), (7,1), (2,2)
 print("ways(20) =", ways(20))  # 5 ways -> (20,0), (15,1), (10,2), (5,3), (0,4)
 print("ways(3)  =", ways(3))   # 1 way  -> (3,0)
