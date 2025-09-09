@@ -32,15 +32,27 @@ def lowest_score(names, scores):
 print("Student with the lowest score:", lowest_score(names, scores))
 
 
+import numpy as np
+
+names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
+scores = np.array([99, 71, 85, 62, 91])
+
 def sort_names(names, scores):
     """
     Return names and scores sorted in descending order of scores.
     """
+    # Get the indices that would sort scores descending
     idx = np.argsort(scores)[::-1]
-    return names[idx], scores[idx]
+    
+    # Use integer indexing on both arrays
+    sorted_names = names[idx]
+    sorted_scores = scores[idx]
+    
+    return sorted_names, sorted_scores
 
-
+# Use the function
 sorted_names, sorted_scores = sort_names(names, scores)
+
 print("Students and their scores in descending order:")
 for name, score in zip(sorted_names, sorted_scores):
     print(f"{name}: {score}")
