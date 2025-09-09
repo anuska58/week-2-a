@@ -27,11 +27,9 @@ def lowest_score(names, scores):
     Return the name and score of the student with the lowest score.
     """
     idx = np.argmin(scores)
-    return names[idx], scores[idx]
+    return names[idx]
 
-
-lowest_name, lowest_score_val = lowest_score(names, scores)
-print(f"Lowest score: {lowest_score_val} by {lowest_name}")
+print("Student with the lowest score:", lowest_score(names, scores))
 
 
 def sort_names(names, scores):
